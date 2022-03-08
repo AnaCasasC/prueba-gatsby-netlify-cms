@@ -6,6 +6,14 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import HelmetExport, {Helmet} from "react-helmet";
 
+import CMS from 'netlify-cms-app'
+// Initialize the CMS object
+CMS.init()
+// Now the registry is available via the CMS object.
+CMS.registerPreviewTemplate('my-template', MyTemplate)
+
+
+
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
